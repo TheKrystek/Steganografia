@@ -14,6 +14,7 @@ class Image{
 
 	public:
 		Image(int x, int y);
+		~Image();
 		void display();
 		void encode(std::string); 
 		string decode(int); 

@@ -26,6 +26,12 @@ Image::Image(int x, int y){
 	}
 }
 
+Image::~Image(){
+	delete [] bits;
+	while(!pixels.empty()) 
+		delete pixels.back(), pixels.pop_back();
+}
+
 void Image::display(){
 	int i = 0;
 	for (vector<Pixel*>::iterator it = pixels.begin(); it!=pixels.end();it++){
@@ -50,7 +56,6 @@ void Image::setNumberOfUsedBits(short r, short g, short b)	{
 }
 
 void Image::encode(std::string message){
-	//printf("rozmiar wiadomosci: %d",message.length());
 	unsigned int index = 0;
 	int usedPixels = ceilOfDivision(message.length() * 8, this->bitsSum);
 
@@ -89,8 +94,8 @@ std::string Image::decode(int msgLength){
 				buff[index] |= ((pixels[p]->colors[i]->getLastBits(bits[i])) << (8 - offset));
 				bitsReaded += bits[i];
 				#ifdef DEBUG
-				printf("p %d, i %d, start %d, index %d, bits %d, buff %c",p,i,offset,index,bits[i],buff[index]);
-				toBin((byte)buff[index]);
+					printf("p %d, i %d, start %d, index %d, bits %d, buff %c",p,i,offset,index,bits[i],buff[index]);
+					toBin((byte)buff[index]);
 				#endif
 				if (offset >= 8){
 					offset = 0;

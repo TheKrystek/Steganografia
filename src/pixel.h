@@ -11,6 +11,7 @@ public:
 	Pixel(Color*, Color*, Color*);
 	Pixel(byte, byte, byte);
 	Pixel();
+	~Pixel();
 	void printColors();
 
 };
