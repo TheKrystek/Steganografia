@@ -17,6 +17,10 @@ using namespace std;
 		this->color = color;
 	}
 
+    int Color::value(){
+        return (int)this->color;
+    }
+
 	byte Color::getColor(){
 		return this->color;
 	}

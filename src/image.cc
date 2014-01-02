@@ -2,29 +2,14 @@
 #include <string>
 #include "utils.h"
 
-#define DEBUG
+//#define DEBUG
 
-template<typename T>
-void toBin(T bin){
-	int len = sizeof(bin) * 8; // rozmiar w bitach
-	printf("%d\t",bin);
-	for (int i=len-1;i>=0;i--)
-		printf("%d",((bin >> i) & 1));
-	printf("\n");
-}
-
-Image::Image(int x, int y){
-	this->cols = x;
-	this->rows = y;
-
+Image::Image(int size){
+    this->size = size;
 	bits = new int[3];
-	this->setNumberOfUsedBits(2,2,2);
-	// na probe wypelnij pustymi pixelami 000
-	for (int i =0;i<x*y;++i){
-		Pixel* p = new Pixel();
-		pixels.push_back(p);
-	}
+    this->setNumberOfUsedBits(2,2,2);
 }
+
 
 Image::~Image(){
 	delete [] bits;
@@ -35,7 +20,7 @@ Image::~Image(){
 void Image::display(){
 	int i = 0;
 	for (vector<Pixel*>::iterator it = pixels.begin(); it!=pixels.end();it++){
-		if (i >0 && i%cols == 0)
+        if (i >0 && i%5 == 0)
 			printf("\n");
 		(*it)->printColors();
 		i++;

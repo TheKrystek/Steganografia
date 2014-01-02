@@ -19,7 +19,7 @@ bool isCorrect(int a, int b, int c){
 		|| b == 1 && ((a+c)==1 || (c+a)==0)
 		|| c == 1 && ((a+b)==1 || (a+b)==0))
 		return true;
-	for (int i = 2;i<8;i*=2)
+    for (int i = 2;i<=8;i*=2)
 		if ((a == i && b == i && c == i) || sum == i)
 		return true;
 	return false;

@@ -6,14 +6,15 @@
 using namespace std;
 
 class Image{
-	int cols, rows;
+    int size;
 	int *bits;
 	int bitsSum;
 
-	vector<Pixel*> pixels; // lista pointerow na pixele
 
 	public:
-		Image(int x, int y);
+    vector<Pixel*> pixels; // lista pointerow na pixele
+
+    Image(int);
 		~Image();
 		void display();
 		void encode(std::string); 

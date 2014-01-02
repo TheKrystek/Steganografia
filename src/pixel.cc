@@ -30,6 +30,19 @@
 		this->colors[2] = blue;
 	}
 
+    int Pixel::red(){
+        return this->colors[0]->value();
+    }
+
+
+    int Pixel::green(){
+        return this->colors[1]->value();
+    }
+
+
+    int Pixel::blue(){
+        return this->colors[2]->value();
+    }
 	void Pixel::printColors(){
 		printf("(%3d, %3d, %3d)",this->colors[0]->getColor(),this->colors[1]->getColor(),this->colors[2]->getColor());
 	}

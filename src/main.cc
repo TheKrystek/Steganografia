@@ -6,7 +6,7 @@
 using namespace std;
 
 int main(){
-	
+
 	// Stworzenie przykładowego obrazu o rozmiarach 6x6 px
 	Image image(6,6);
 	int a = 3;
